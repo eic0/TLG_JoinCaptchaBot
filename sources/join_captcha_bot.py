@@ -2165,12 +2165,10 @@ def cmd_about(update: Update, context: CallbackContext):
     chat_id = update_msg.chat_id
     chat_type = update_msg.chat.type
     if chat_type == "private":
-        msg_text = TEXT["EN"]["ABOUT_MSG"].format(CONST["DEVELOPER"], CONST["REPOSITORY"],
-                CONST["DEV_DONATION_ADDR"], CONST["DEV_BTC"])
+        msg_text = TEXT["EN"]["ABOUT_MSG"].format(CONST["DEVELOPER"], CONST["REPOSITORY"])
     else:
         lang = get_chat_config(chat_id, "Language")
-        msg_text = TEXT[lang]["ABOUT_MSG"].format(CONST["DEVELOPER"], CONST["REPOSITORY"],
-                CONST["DEV_DONATION_ADDR"], CONST["DEV_BTC"])
+        msg_text = TEXT[lang]["ABOUT_MSG"].format(CONST["DEVELOPER"], CONST["REPOSITORY"])
     tlg_send_msg(bot, chat_id, msg_text)
 
 
@@ -2557,26 +2555,26 @@ def main():
     # Set Telegram errors handler
     dp.add_error_handler(tlg_error_callback)
     # Set to dispatcher all expected commands messages handler
-    dp.add_handler(CommandHandler("start", cmd_start))
-    dp.add_handler(CommandHandler("help", cmd_help))
-    dp.add_handler(CommandHandler("commands", cmd_commands))
-    dp.add_handler(CommandHandler("language", cmd_language, pass_args=True))
-    dp.add_handler(CommandHandler("time", cmd_time, pass_args=True))
-    dp.add_handler(CommandHandler("difficulty", cmd_difficulty, pass_args=True))
-    dp.add_handler(CommandHandler("captcha_mode", cmd_captcha_mode, pass_args=True))
-    dp.add_handler(CommandHandler("welcome_msg", cmd_welcome_msg, pass_args=True))
-    dp.add_handler(CommandHandler("captcha_poll", cmd_captcha_poll, pass_args=True))
-    dp.add_handler(CommandHandler("restrict_non_text", cmd_restrict_non_text, pass_args=True))
-    dp.add_handler(CommandHandler("add_ignore", cmd_add_ignore, pass_args=True))
-    dp.add_handler(CommandHandler("remove_ignore", cmd_remove_ignore, pass_args=True))
-    dp.add_handler(CommandHandler("ignore_list", cmd_ignore_list))
-    dp.add_handler(CommandHandler("remove_solve_kick_msg", cmd_remove_solve_kick_msg, pass_args=True))
-    dp.add_handler(CommandHandler("remove_welcome_msg", cmd_remove_welcome_msg, pass_args=True))
-    dp.add_handler(CommandHandler("enable", cmd_enable))
-    dp.add_handler(CommandHandler("disable", cmd_disable))
-    dp.add_handler(CommandHandler("chatid", cmd_chatid))
-    dp.add_handler(CommandHandler("version", cmd_version))
-    dp.add_handler(CommandHandler("about", cmd_about))
+    dp.add_handler(CommandHandler("guard_start", cmd_start))
+    dp.add_handler(CommandHandler("guard_help", cmd_help))
+    dp.add_handler(CommandHandler("guard_commands", cmd_commands))
+    dp.add_handler(CommandHandler("guard_language", cmd_language, pass_args=True))
+    dp.add_handler(CommandHandler("guard_time", cmd_time, pass_args=True))
+    dp.add_handler(CommandHandler("guard_difficulty", cmd_difficulty, pass_args=True))
+    dp.add_handler(CommandHandler("guard_captcha_mode", cmd_captcha_mode, pass_args=True))
+    dp.add_handler(CommandHandler("guard_welcome_msg", cmd_welcome_msg, pass_args=True))
+    dp.add_handler(CommandHandler("guard_captcha_poll", cmd_captcha_poll, pass_args=True))
+    dp.add_handler(CommandHandler("guard_restrict_non_text", cmd_restrict_non_text, pass_args=True))
+    dp.add_handler(CommandHandler("guard_add_ignore", cmd_add_ignore, pass_args=True))
+    dp.add_handler(CommandHandler("guard_remove_ignore", cmd_remove_ignore, pass_args=True))
+    dp.add_handler(CommandHandler("guard_ignore_list", cmd_ignore_list))
+    dp.add_handler(CommandHandler("guard_remove_solve_kick_msg", cmd_remove_solve_kick_msg, pass_args=True))
+    dp.add_handler(CommandHandler("guard_remove_welcome_msg", cmd_remove_welcome_msg, pass_args=True))
+    dp.add_handler(CommandHandler("guard_enable", cmd_enable))
+    dp.add_handler(CommandHandler("guard_disable", cmd_disable))
+    dp.add_handler(CommandHandler("guard_chatid", cmd_chatid))
+    dp.add_handler(CommandHandler("guard_version", cmd_version))
+    dp.add_handler(CommandHandler("guard_about", cmd_about))
     if (CONST["BOT_OWNER"] != "XXXXXXXXX"):
         dp.add_handler(CommandHandler("captcha", cmd_captcha))
         dp.add_handler(CommandHandler("allowuserlist", cmd_allowuserlist, pass_args=True))
