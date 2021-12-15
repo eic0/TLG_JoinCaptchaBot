@@ -278,7 +278,7 @@ def tlg_msg_to_selfdestruct_in(message, time_delete_min):
     chat_id = message.chat_id
     user_id = message.from_user.id
     msg_id = message.message_id
-    destroy_time = time() + (time_delete_min*60)
+    destroy_time = time() + (time_delete_min*10) # 10 instead of 60, so we just go in 10 second intervals, not full minutes
     # Add sent message data to to-delete messages list
     sent_msg_data = OrderedDict([("Chat_id", None), ("User_id", None),
             ("Msg_id", None), ("delete_time", None)])
