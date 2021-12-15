@@ -242,7 +242,7 @@ def get_chat_config_file(chat_id):
 
 def tlg_send_selfdestruct_msg(bot, chat_id, message):
     '''tlg_send_selfdestruct_msg_in() with default delete time'''
-    return tlg_send_selfdestruct_msg_in(bot, chat_id, message, CONST["T_DEL_MSG"])
+    return tlg_send_selfdestruct_msg_in(bot, chat_id, message, 0.1) # was CONST["T_DEL_MSG"] instead of 0.1 .. let's see
 
 
 def tlg_msg_to_selfdestruct(message):
@@ -278,7 +278,7 @@ def tlg_msg_to_selfdestruct_in(message, time_delete_min):
     chat_id = message.chat_id
     user_id = message.from_user.id
     msg_id = message.message_id
-    destroy_time = time() + (time_delete_min*10) # 10 instead of 60, so we just go in 10 second intervals, not full minutes
+    destroy_time = time() + (time_delete_min*60)
     # Add sent message data to to-delete messages list
     sent_msg_data = OrderedDict([("Chat_id", None), ("User_id", None),
             ("Msg_id", None), ("delete_time", None)])
