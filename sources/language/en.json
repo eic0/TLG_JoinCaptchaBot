@@ -108,7 +108,7 @@
         "Hello {}, welcome to {}. Please press the button below to verify that you are not a robot. If you don't do this in {}, you will be automatically kicked out of the group.",
 
     "CAPTCHA_SOLVED":
-        "Captcha solved, user verified.\nWelcome to the group, {}. You may also want to join our announcement channel at https://t.me/CleanOcean2",
+        "Captcha solved, user verified.\nWelcome to the group, {}.\nYou may also want to join our announcement channel at https://t.me/CleanOcean2",
 
     "CAPTCHA_INCORRECT_0":
         "That is not the correct code. Try again...",
